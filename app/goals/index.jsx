@@ -201,69 +201,75 @@ const Goals = () => {
 
       {/* Floating Action Button Menu */}
       <View style={styles.fabContainer}>
-        {fabOpen && (
-          <>
-            {/* Add Task */}
-            <Animated.View
-              style={{
-                opacity: anim1,
-                transform: [
-                  {
-                    translateY: anim1.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [0, -70],
-                    }),
-                  },
-                ],
-              }}
-            >
-              <TouchableOpacity
-                style={[styles.fabOption, { backgroundColor: '#4CAF50' }]}
-                onPress={() => {
-                  router.push('/goals/create');
-                  toggleFab();
-                }}
-              >
-                <Ionicons name="add" size={22} color="white" />
-              </TouchableOpacity>
-            </Animated.View>
-
-            {/* Logout */}
-            <Animated.View
-              style={{
-                opacity: anim2,
-                transform: [
-                  {
-                    translateY: anim2.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [0, -140],
-                    }),
-                  },
-                ],
-              }}
-            >
-              <TouchableOpacity
-                style={[styles.fabOption, { backgroundColor: '#E53935' }]}
-                onPress={() => {
-                  signOut(auth);
-                  toggleFab();
-                }}
-              >
-                <Ionicons name="log-out" size={22} color="white" />
-              </TouchableOpacity>
-            </Animated.View>
-          </>
-        )}
-
-        {/* Main FAB */}
-        <TouchableOpacity style={styles.fabMain} onPress={toggleFab}>
-          <Ionicons
-            name={fabOpen ? 'close' : 'menu'}
-            size={28}
-            color="white"
-          />
+  {/* Add Task */}
+  {fabOpen && (
+    <>
+      <Animated.View
+        style={[
+          styles.fabOptionWrapper,
+          {
+            transform: [
+              {
+                translateY: anim1.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -70],
+                }),
+              },
+            ],
+            opacity: anim1,
+          },
+        ]}
+      >
+        <TouchableOpacity
+          style={[styles.fabOption, { backgroundColor: '#4CAF50' }]}
+          onPress={() => {
+            router.push('/goals/create')
+            toggleFab()
+          }}
+        >
+          <Ionicons name="add" size={22} color="white" />
         </TouchableOpacity>
-      </View>
+      </Animated.View>
+
+      {/* Logout */}
+      <Animated.View
+        style={[
+          styles.fabOptionWrapper,
+          {
+            transform: [
+              {
+                translateY: anim2.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [0, -140],
+                }),
+              },
+            ],
+            opacity: anim2,
+          },
+        ]}
+      >
+        <TouchableOpacity
+          style={[styles.fabOption, { backgroundColor: '#E53935' }]}
+          onPress={() => {
+            signOut(auth)
+            toggleFab()
+          }}
+        >
+          <Ionicons name="log-out" size={22} color="white" />
+        </TouchableOpacity>
+      </Animated.View>
+    </>
+  )}
+
+  {/* Main FAB */}
+  <TouchableOpacity style={styles.fabMain} onPress={toggleFab}>
+    <Ionicons
+      name={fabOpen ? 'close' : 'menu'}
+      size={28}
+      color="white"
+    />
+  </TouchableOpacity>
+</View>
     </SafeAreaView>
   );
 };
@@ -365,4 +371,10 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     elevation: 4,
   },
+  fabOptionWrapper: {
+  position: 'absolute',
+  bottom: 70, // base offset from main fab
+  right: 5,   // aligns with main fab horizontally
+},
+
 });

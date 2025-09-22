@@ -4,12 +4,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBoOgz1CXX_XrAiM5fprXd2RWYsWNpvGME",
-  authDomain: "rmy-goals-6753f.firebaseapp.com",
-  projectId: "rmy-goals-6753f",
-  storageBucket: "rmy-goals-6753f.firebasestorage.app",
-  messagingSenderId: "667301799629",
-  appId: "1:667301799629:web:8e249a022f891f631ceb84"
+  apiKey: "AIzaSyCPZbRgEoPZPjP2HgkVklxAP5ffdCyiilU",
+  authDomain: "studyplay-d99fc.firebaseapp.com",
+  projectId: "studyplay-d99fc",
+  storageBucket: "studyplay-d99fc.firebasestorage.app",
+  messagingSenderId: "785589784316",
+  appId: "1:785589784316:web:f6443363e074d00c539179"
 };
 
 
